@@ -591,7 +591,7 @@ CREATE TABLE `loadorder` (
   `target_ins_id` varchar(7) DEFAULT NULL,
   `departure_ins_id` varchar(7) DEFAULT NULL,
   `comment` text,
-  `isSetArrived` tinyint(1) DEFAULT NULL,
+  `isSetArrived` tinyint(1) DEFAULT '0',
   `price` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -602,7 +602,6 @@ CREATE TABLE `loadorder` (
 
 LOCK TABLES `loadorder` WRITE;
 /*!40000 ALTER TABLE `loadorder` DISABLE KEYS */;
-INSERT INTO `loadorder` VALUES ('00110012017010100001','00110011','000000008','0011001001','2017-01-01',1,'0010001','0011001','asdfasdf',0,60);
 /*!40000 ALTER TABLE `loadorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1148,4 +1147,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-01 14:11:03
+-- Dump completed on 2017-01-01 14:19:46
