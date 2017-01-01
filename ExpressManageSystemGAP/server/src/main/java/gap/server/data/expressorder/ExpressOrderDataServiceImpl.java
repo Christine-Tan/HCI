@@ -170,9 +170,10 @@ public class ExpressOrderDataServiceImpl extends UnicastRemoteObject implements
 		// TODO 自动生成的方法存根
 		try {
 			String sql = "SELECT * FROM expressorder WHERE order_id = '"
-					+ order_id + "' AND " + passed_f + " = 'true';";
+					+ order_id + "' AND " + passed_f + " = true;";
 			ResultSet re = NetModule.excutor.excuteQuery(sql);
 			re.next();
+			System.out.println("re"+re);
 			return getByResultSet(re);
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块

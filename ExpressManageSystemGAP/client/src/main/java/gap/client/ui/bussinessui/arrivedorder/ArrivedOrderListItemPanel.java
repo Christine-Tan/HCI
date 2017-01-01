@@ -1,34 +1,16 @@
 package gap.client.ui.bussinessui.arrivedorder;
 
-import gap.client.blcontroller.DriverManageController;
-import gap.client.blcontroller.ExpressorderController;
-import gap.client.blcontroller.InstitutionController;
-import gap.client.blcontroller.LoadOrderController;
-import gap.client.blcontroller.UserController;
+import gap.client.blcontroller.*;
 import gap.client.ui.UITools.Default;
 import gap.client.ui.UITools.RenderSetter;
 import gap.client.ui.UITools.SwingConsole;
-import gap.client.ui.gapcomponents.ComponentStyle;
-import gap.client.ui.gapcomponents.GAPButton;
-import gap.client.ui.gapcomponents.GAPComboBox;
-import gap.client.ui.gapcomponents.GAPLabel;
-import gap.client.ui.gapcomponents.GAPTextField;
+import gap.client.ui.gapcomponents.*;
 import gap.client.util.LocalInfo;
-import gap.client.vo.ArrivedOrderVO;
-import gap.client.vo.DriverVO;
-import gap.client.vo.ExpressOrderVO;
-import gap.client.vo.InstitutionVO;
-import gap.client.vo.LoadOrderVO;
-import gap.client.vo.UserVO;
+import gap.client.vo.*;
 import gap.common.util.ArrivedState;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
@@ -36,14 +18,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class ArrivedOrderListItemPanel extends JPanel {
 	List<ItemPanel> items;
@@ -283,7 +257,6 @@ public class ArrivedOrderListItemPanel extends JPanel {
 			SwingConsole.addComponent(gb, gcons, this, arrived_state_la, 3, 0,
 					1, 1, 0, 0);
 			for (int i = 0; i < expressOrder.size(); i++) {
-//				System.out.println(expressOrder.get(i));
 				addItem(expressOrder.get(i), i + 1);
 			}
 

@@ -50,7 +50,8 @@ public class ExpressOrder implements ExpressOrderService {
 		ExpressOrderPO po = expressorderData.findExpressOrder(order_id);
 		if (po != null)
 			return new ExpressOrderVO(po);
-		return null;
+		System.out.println("po is null");
+		return new ExpressOrderVO();
 	}
 
 	@Override

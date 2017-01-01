@@ -190,10 +190,12 @@ public class LoadOrderDataServiceImpl extends UnicastRemoteObject implements
 			String sql = "SELECT * FROM " + tableName + " WHERE "
 					+ target_ins_f + " = '" + ins_id
 					+ "' AND isSetArrived = false AND passed=true;";
+			System.out.println("ins_id:"+ins_id);
 			ResultSet re = NetModule.excutor.excuteQuery(sql);
 			List<LoadOrderPO> loadOrder = new ArrayList<LoadOrderPO>();
 			while (re.next()) {
 				loadOrder.add(getByResultSet(re));
+				System.out.println("data"+getByResultSet(re));
 			}
 			return loadOrder;
 		} catch (SQLException e) {
