@@ -1,14 +1,10 @@
 package gap.server.databaseutility;
 
-import static gap.server.databaseutility.Config.database;
-import static gap.server.databaseutility.Config.driver;
-import static gap.server.databaseutility.Config.password;
-import static gap.server.databaseutility.Config.url;
-import static gap.server.databaseutility.Config.user;
-import static gap.server.databaseutility.Excutor.cone;
-
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import static gap.server.databaseutility.Config.*;
+import static gap.server.databaseutility.Excutor.cone;
 
 /**
  * 

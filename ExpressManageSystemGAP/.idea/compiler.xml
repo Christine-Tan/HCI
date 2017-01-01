@@ -28,7 +28,7 @@
         <module name="stub_driver" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="client" target="1.8" />
       <module name="common" target="1.7" />
       <module name="ExpressMangeSystemGAP" target="1.5" />
