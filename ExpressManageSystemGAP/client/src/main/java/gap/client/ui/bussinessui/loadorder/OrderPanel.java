@@ -118,9 +118,11 @@ public class OrderPanel extends JPanel {
 		SwingConsole
 				.addComponent(gb, gcons, this, titlePanel, 0, 1, 1, 1, 1, 0);
 		List<ExpressOrderVO> orders;
+		System.out.println("HCI_Log:LocalInfo:localUser-"+LocalInfo.localuser.getName()+" ins_id-"+LocalInfo.ins_id);
 		if (LocalInfo.ins_id.charAt(3) != '1') {
 			orders = ExpressorderController
 					.getCurrentOrders(CurrentOrderType.LOAD);
+			System.out.println("HCI_Log: 营业厅加载订单 "+orders);
 		} else {
 			orders = ExpressorderController
 					.getCurrentOrders(CurrentOrderType.ALL);

@@ -36,7 +36,7 @@ public class LoadOrder implements LoadOrderService {
 		// TODO 自动生成的方法存根
 		List<LoadOrderPO> orders = loadDataController
 				.getArrivingLoadOrder(ins_id);
-		List<LoadOrderVO> vo_orders = new ArrayList<LoadOrderVO>();
+		List<LoadOrderVO> vo_orders = new ArrayList<LoadOrderVO>(orders.size());
 		for (LoadOrderPO order : orders) {
 			vo_orders.add(new LoadOrderVO(order));
 		}

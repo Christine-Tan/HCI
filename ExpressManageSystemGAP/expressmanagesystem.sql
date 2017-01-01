@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.14, for osx10.11 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: localhost    Database: expressmanagesystem
+-- Host: 127.0.0.1    Database: expressmanagesystem
 -- ------------------------------------------------------
--- Server version	5.7.14
+-- Server version	5.7.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -53,7 +53,7 @@ CREATE TABLE `address` (
   `city` varchar(50) DEFAULT NULL,
   `district` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,'江苏省','南京市','栖霞区'),(2,'江苏省','南京市','江宁区'),(3,'江苏省','南京市','鼓楼区'),(4,'江苏省','南京市','建邺区');
+INSERT INTO `address` VALUES (1,'江苏省','南京市','栖霞区'),(2,'江苏省','南京市','江宁区'),(3,'江苏省','南京市','鼓楼区'),(4,'江苏省','南京市','建邺区'),(5,'上海','上海','青浦区'),(6,'上海','上海市','青浦区');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +79,7 @@ CREATE TABLE `arrivedorder` (
   `from_ins_id` varchar(20) DEFAULT NULL,
   `comment` varchar(20) DEFAULT NULL,
   `time` date DEFAULT NULL,
-  `passed` tinyint(1) DEFAULT NULL,
+  `passed` tinyint(1) DEFAULT '0',
   `load_order_id` varchar(20) DEFAULT NULL,
   `is_stockin` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -130,7 +130,7 @@ CREATE TABLE `billorder` (
   `order_id` varchar(20) DEFAULT NULL,
   `total_money` double DEFAULT NULL,
   `time` date DEFAULT NULL,
-  `passed` tinyint(1) DEFAULT NULL
+  `passed` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -208,7 +208,7 @@ CREATE TABLE `cargo_info` (
   `volume` float DEFAULT NULL,
   `id` int(10) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,6 +217,7 @@ CREATE TABLE `cargo_info` (
 
 LOCK TABLES `cargo_info` WRITE;
 /*!40000 ALTER TABLE `cargo_info` DISABLE KEYS */;
+INSERT INTO `cargo_info` VALUES ('啦啦',1,1,1,1),('asdf',1,1,1,2),('afdas',1,1,1,3),('sadfas',1,1,1,4),('asddfsdf',1,11,1,5),('afa',1,1,1,6),('safd',1,1,1,7),('asfd',2,2,2,8),('asfsa',1,3,3,9),('asfdas',2,2,2,10),('asfd',2,2,2,11);
 /*!40000 ALTER TABLE `cargo_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,7 +244,7 @@ CREATE TABLE `city` (
 
 LOCK TABLES `city` WRITE;
 /*!40000 ALTER TABLE `city` DISABLE KEYS */;
-INSERT INTO `city` VALUES (1,'南京市',37,113.8,1),(2,'上海',37.5,118.5,2);
+INSERT INTO `city` VALUES (1,'南京市',37,113.8,1),(2,'上海市',37.5,118.5,2);
 /*!40000 ALTER TABLE `city` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +259,7 @@ CREATE TABLE `deliveryorder` (
   `order_id` varchar(20) DEFAULT NULL,
   `comment` text,
   `time` date DEFAULT NULL,
-  `passed` tinyint(1) DEFAULT NULL
+  `passed` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -333,7 +334,7 @@ CREATE TABLE `district` (
   `name` varchar(20) DEFAULT NULL,
   `city_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -342,7 +343,7 @@ CREATE TABLE `district` (
 
 LOCK TABLES `district` WRITE;
 /*!40000 ALTER TABLE `district` DISABLE KEYS */;
-INSERT INTO `district` VALUES (1,'栖霞区',1),(2,'鼓楼区',1),(3,'江宁区',1),(4,'建邺区',1);
+INSERT INTO `district` VALUES (1,'栖霞区',1),(2,'鼓楼区',1),(3,'江宁区',1),(4,'建邺区',1),(5,'青浦区',2),(6,'黄浦区',2);
 /*!40000 ALTER TABLE `district` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,9 +388,9 @@ CREATE TABLE `expressorder` (
   `order_id` varchar(10) DEFAULT NULL,
   `currentIns_id` varchar(7) DEFAULT NULL,
   `targetIns_id` varchar(7) DEFAULT NULL,
-  `received` tinyint(1) DEFAULT NULL,
-  `passed` tinyint(1) DEFAULT NULL,
-  `isTransferred` tinyint(1) DEFAULT NULL,
+  `received` tinyint(1) DEFAULT '0',
+  `passed` varchar(20) DEFAULT 'false',
+  `isTransferred` tinyint(1) DEFAULT '0',
   `sender_info` int(10) DEFAULT NULL,
   `receiver_info` int(10) DEFAULT NULL,
   `price` double DEFAULT NULL,
@@ -406,6 +407,7 @@ CREATE TABLE `expressorder` (
 
 LOCK TABLES `expressorder` WRITE;
 /*!40000 ALTER TABLE `expressorder` DISABLE KEYS */;
+INSERT INTO `expressorder` VALUES ('0000000001',NULL,'0010001',0,'1',1,7,7,0.675,'000000001','2017-01-01','STANDARD',7),('0000000002',NULL,'0010001',0,'1',1,8,8,1.35,'000000001','2017-01-01','STANDARD',8),('0000000003','0011001',NULL,0,'submitnotapprove',0,9,9,2.0250000000000004,'000000001','2017-01-01','STANDARD',9),('0000000004',NULL,'0010001',0,'1',1,10,10,1.35,'000000001','2017-01-01','STANDARD',10),('0000000005',NULL,'0010001',0,'1',1,11,11,1.35,'000000001','2017-01-01','STANDARD',11);
 /*!40000 ALTER TABLE `expressorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -429,6 +431,7 @@ CREATE TABLE `expressorderstate` (
 
 LOCK TABLES `expressorderstate` WRITE;
 /*!40000 ALTER TABLE `expressorderstate` DISABLE KEYS */;
+INSERT INTO `expressorderstate` VALUES ('0000000001','2017-01-01 02:52:26','营业厅已收件'),('0000000002','2017-01-01 03:20:02','营业厅已收件'),('0000000001','2017-01-01 03:25:25','营业厅已收件'),('0000000001','2017-01-01 03:52:36','营业厅已收件'),('0000000001','2017-01-01 03:59:35','营业厅已收件'),('0000000002','2017-01-01 04:09:38','营业厅已收件'),('0000000003','2017-01-01 04:34:30','营业厅已收件'),('0000000004','2017-01-01 04:55:54','营业厅已收件'),('0000000005','2017-01-01 05:15:22','营业厅已收件'),('0000000001','2017-01-01 05:21:11','正在发往中转中心'),('0000000002','2017-01-01 05:21:11','正在发往中转中心'),('0000000004','2017-01-01 05:21:11','正在发往中转中心'),('0000000005','2017-01-01 05:21:11','正在发往中转中心');
 /*!40000 ALTER TABLE `expressorderstate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -567,7 +570,7 @@ CREATE TABLE `institution` (
 
 LOCK TABLES `institution` WRITE;
 /*!40000 ALTER TABLE `institution` DISABLE KEYS */;
-INSERT INTO `institution` VALUES ('0010001','中转中心',20,'南京市','CENTER'),('0010002','中转中心',20,'南京市','CENTER'),('0010003','中转中心',20,'南京市','CENTER'),('0010004','中转中心',20,'南京市','CENTER'),('0011001','营业厅',30,'南京市','BUSINESS'),('0011002','营业厅',30,'南京市','BUSINESS'),('0011003','营业厅',30,'南京市','BUSINESS'),('0011004','营业厅',30,'南京市','BUSINESS');
+INSERT INTO `institution` VALUES ('0010001','中转中心',20,'南京市','CENTER'),('0010002','中转中心',20,'南京市','CENTER'),('0010003','中转中心',20,'南京市','CENTER'),('0010004','中转中心',20,'南京市','CENTER'),('0011001','营业厅',30,'南京市','BUSINESS'),('0011002','营业厅',30,'南京市','BUSINESS'),('0011003','营业厅',30,'南京市','BUSINESS'),('0011004','营业厅',30,'南京市','BUSINESS'),('20001','中转中心',20,'上海市','CENTER'),('21001','营业厅',20,'上海市','BUSINESS');
 /*!40000 ALTER TABLE `institution` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -584,8 +587,8 @@ CREATE TABLE `loadorder` (
   `guard_id` varchar(20) DEFAULT NULL,
   `car_num` varchar(20) DEFAULT NULL,
   `time` date DEFAULT NULL,
-  `passed` tinyint(1) DEFAULT NULL,
-  `target_ind_id` varchar(7) DEFAULT NULL,
+  `passed` tinyint(1) DEFAULT '0',
+  `target_ins_id` varchar(7) DEFAULT NULL,
   `departure_ins_id` varchar(7) DEFAULT NULL,
   `comment` text,
   `isSetArrived` tinyint(1) DEFAULT NULL,
@@ -599,6 +602,7 @@ CREATE TABLE `loadorder` (
 
 LOCK TABLES `loadorder` WRITE;
 /*!40000 ALTER TABLE `loadorder` DISABLE KEYS */;
+INSERT INTO `loadorder` VALUES ('00110012017010100001','00110011','000000008','0011001001','2017-01-01',1,'0010001','0011001','asdfasdf',0,60);
 /*!40000 ALTER TABLE `loadorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -614,7 +618,7 @@ CREATE TABLE `loadorderitem` (
   `order_id` varchar(20) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -623,6 +627,7 @@ CREATE TABLE `loadorderitem` (
 
 LOCK TABLES `loadorderitem` WRITE;
 /*!40000 ALTER TABLE `loadorderitem` DISABLE KEYS */;
+INSERT INTO `loadorderitem` VALUES ('0000000001','00110012017010100001',1),('0000000002','00110012017010100001',2),('0000000003','00110012017010100002',3),('0000000004','00110012017010100001',4),('0000000005','00110012017010100001',5);
 /*!40000 ALTER TABLE `loadorderitem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -639,7 +644,7 @@ CREATE TABLE `log` (
   `operate` varchar(20) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -648,6 +653,7 @@ CREATE TABLE `log` (
 
 LOCK TABLES `log` WRITE;
 /*!40000 ALTER TABLE `log` DISABLE KEYS */;
+INSERT INTO `log` VALUES ('2017-01-01 02:52:27','000000003','寄件单0000000001审批通过',1),('2017-01-01 03:20:02','000000003','寄件单0000000002审批通过',2),('2017-01-01 03:25:25','000000003','寄件单0000000001审批通过',3),('2017-01-01 03:52:36','000000003','寄件单0000000001审批通过',4),('2017-01-01 03:59:35','000000003','寄件单0000000001审批通过',5),('2017-01-01 04:09:38','000000003','寄件单0000000002审批通过',6),('2017-01-01 04:34:30','000000003','寄件单0000000003审批通过',7),('2017-01-01 05:15:22','000000003','寄件单0000000005审批通过',8);
 /*!40000 ALTER TABLE `log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -692,7 +698,7 @@ CREATE TABLE `paymentlist` (
   `total` double DEFAULT NULL,
   `payer` varchar(45) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `passed` tinyint(1) DEFAULT NULL,
+  `passed` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -799,7 +805,7 @@ CREATE TABLE `receiver_info` (
   `address` int(10) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -808,6 +814,7 @@ CREATE TABLE `receiver_info` (
 
 LOCK TABLES `receiver_info` WRITE;
 /*!40000 ALTER TABLE `receiver_info` DISABLE KEYS */;
+INSERT INTO `receiver_info` VALUES ('xs','12345678901','锵锵锵',5,1),('asfdsa','12312312312','123123123',5,2),('asdfasd','12312312312','asdfadsf',5,3),('asddfasf','12312312312','asdfadsf',5,4),('afadsf','12312312312','sdafsadf',5,5),('asfdas','12312312312','asdfsaf',5,6),('fsasfd123','12312312312','sdfasadf',5,7),('asfd','12312312312','asdfsdaf',6,8),('sadf','12312312312','safa',6,9),('asdf','12312312312','asfsa',6,10),('sadf','12312312312','asdfs',6,11);
 /*!40000 ALTER TABLE `receiver_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -958,7 +965,7 @@ CREATE TABLE `sender_info` (
   `address` int(11) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -967,6 +974,7 @@ CREATE TABLE `sender_info` (
 
 LOCK TABLES `sender_info` WRITE;
 /*!40000 ALTER TABLE `sender_info` DISABLE KEYS */;
+INSERT INTO `sender_info` VALUES ('sx','12345678901','咚咚咚',1,1),('asdf','12312312312','123123123',1,2),('asdf','12312312312','123123',1,3),('asdfasdf','12312312312','safdsdf',1,4),('asadf','12312312312','asdfsad',1,5),('asdfas','12312312312','assfdsda',1,6),('asdf','12312312312','sadfsad',1,7),('asdf','12312312312','asfdsaf',1,8),('asdf','12312312312','sdaf',1,9),('asdf','12312312312','asdf',1,10),('asdf','12312312312','asfd',1,11);
 /*!40000 ALTER TABLE `sender_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1008,7 +1016,7 @@ CREATE TABLE `stockinorder` (
   `order_id` varchar(20) DEFAULT NULL,
   `time` date DEFAULT NULL,
   `ins_id` varchar(20) DEFAULT NULL,
-  `passed` tinyint(1) DEFAULT NULL
+  `passed` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1058,7 +1066,7 @@ CREATE TABLE `stockoutorder` (
   `transport` enum('CAR','PLANE','TRAIN') DEFAULT NULL,
   `target_ins` varchar(20) DEFAULT NULL,
   `ins_id` varchar(20) DEFAULT NULL,
-  `passed` tinyint(1) DEFAULT NULL,
+  `passed` tinyint(1) DEFAULT '0',
   `loaded` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1086,7 +1094,7 @@ CREATE TABLE `transfare` (
   `driver_id` varchar(20) DEFAULT NULL,
   `money` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1095,6 +1103,7 @@ CREATE TABLE `transfare` (
 
 LOCK TABLES `transfare` WRITE;
 /*!40000 ALTER TABLE `transfare` DISABLE KEYS */;
+INSERT INTO `transfare` VALUES (1,'00110012017010100001','00110011',60);
 /*!40000 ALTER TABLE `transfare` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1126,7 +1135,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('000000001','sx','123123','0010001',1,'DELIVERY','sx','MALE',NULL),('000000002','xzw','123123','0011001',1,'BUSSINESSCLERK','xzw','MALE',NULL),('000000003','txy','123123','0011002',1,'MANAGER','txy','FEMALE',NULL),('000000004','tzy','123123','0011003',1,'ADMINISTRATOR','tzy','FEMALE',NULL),('000000005','christine','123123','0011001',1,'CENTERCLERK','christine','FEMALE',NULL),('000000006','zoe','123123','0010003',1,'INVENTORY','zoe','FEMALE',NULL),('000000007','sunxu','123123','0011004',1,'ACCOUNTER','sunxu','FEMALE',NULL);
+INSERT INTO `user` VALUES ('000000001','sx','123123','0011001',1,'DELIVERY','sx','MALE',NULL),('000000002','xzw','123123','0011001',1,'BUSSINESSCLERK','xzw','MALE',NULL),('000000003','txy','123123','0011002',1,'MANAGER','txy','FEMALE',NULL),('000000004','tzy','123123','0011003',1,'ADMINISTRATOR','tzy','FEMALE',NULL),('000000005','christine','123123','0011001',1,'CENTERCLERK','christine','FEMALE',NULL),('000000006','zoe','123123','0010003',1,'INVENTORY','zoe','FEMALE',NULL),('000000007','sunxu','123123','0011004',1,'ACCOUNTER','sunxu','FEMALE',NULL),('000000008','sx1','123123','0011001',1,'BUSSINESSCLERK','sx1','MALE',NULL),('000000009','sx2','123123','0010001',1,'CENTERCLERK','sx2','MALE',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -1139,4 +1148,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-27 17:58:12
+-- Dump completed on 2017-01-01 14:11:03

@@ -251,6 +251,7 @@ public class ExpressOrderDataServiceImpl extends UnicastRemoteObject implements
 			List<ExpressOrderPO> orders = new ArrayList<ExpressOrderPO>();
 			String sql = "SELECT * FROM expressorder WHERE currentIns_id='"
 					+ ins_id + "' AND " + passed_f + " = 'true' ";
+			System.out.println("HCI_Log:"+sql);
 			if (type == CurrentOrderType.ALL)
 				sql += " ;";
 			else if (type == CurrentOrderType.LOAD)
@@ -333,7 +334,8 @@ public class ExpressOrderDataServiceImpl extends UnicastRemoteObject implements
 		try {
 			addState(order_id, state);
 			update.clear();
-			update.add(passed_f, true);
+//			update.add(passed_f, true);
+			update.add(passed_f, "true");
 			update.setKey(order_id_f, order_id);
 			NetModule.excutor.excute(update.createSQL());
 		} catch (SQLException e) {
@@ -343,7 +345,8 @@ public class ExpressOrderDataServiceImpl extends UnicastRemoteObject implements
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
-		return null;
+//		return null;
+		return ResultMessage.SUCCEED;
 	}
 
 	@Override
