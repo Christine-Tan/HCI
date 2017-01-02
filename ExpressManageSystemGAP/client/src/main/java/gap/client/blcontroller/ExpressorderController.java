@@ -40,7 +40,7 @@ public class ExpressorderController {
 	}
 
 	public static List<ExpressOrderVO> getByOrderIdList(List<String> orderIds) {
-		List<ExpressOrderVO> orders = new ArrayList<ExpressOrderVO>();
+		List<ExpressOrderVO> orders = new ArrayList<ExpressOrderVO>(orderIds.size());
 		for (String str : orderIds) {
 			try {
 				orders.add(expressorder.getOrder(str));

@@ -122,7 +122,7 @@ public class OrderPanel extends JPanel {
 		if (LocalInfo.ins_id.charAt(3) != '1') {
 			orders = ExpressorderController
 					.getCurrentOrders(CurrentOrderType.LOAD);
-			System.out.println("HCI_Log: 营业厅加载订单 "+orders);
+//			System.out.println("HCI_Log: 营业厅加载订单 "+orders);
 		} else {
 			orders = ExpressorderController
 					.getCurrentOrders(CurrentOrderType.ALL);
