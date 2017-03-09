@@ -1,0 +1,14 @@
+DDL 3-1
+任务描述：
+每个人分配1-2个页面，大家结合测试报告，查看相关网站（如去哪，携程，艺龙等）提出修改建议，最好有截图，提交结果没有固定格式。不要考虑实现难度，尽可能提出建议，随后我们再对建议评估可行性
+
+注意：我们只考虑用户测试过程中的相关任务，其他任务大家暂时不要考虑。
+
+分配如下：
+
+小七：choose_hotel.html choose_room.html
+老夏：personal_home.html  user_register.html
+小他：reserve_room.html judge_room.html
+^(*￣(oo)￣)^：manage_room.html
+
+提交时间：3月10日 23:59
