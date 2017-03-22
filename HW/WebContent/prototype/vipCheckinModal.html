@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Theme Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="../less/datetimepicker.less">
+    <!-- Custom styles for this template -->
+    <link href="../css/theme.css" rel="stylesheet">
+    <link href="../css/customer/sx-style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body onkeydown="onkey()">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        data-whatever="@getbootstrap">操作
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">房间0001<span class="label label-success"
+                                                                           style="margin-left: 10px">已预订</span></h4>
+            </div>
+            <div class="modal-body">
+                <div style="margin-left: 10px;margin-right: 10px">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">会员姓名</label>
+                            <div class="col-md-4">
+                                <label class="control-label" style="color: #878787">小柒</label>
+                            </div>
+                            <label class="control-label col-md-2">联系电话</label>
+                            <div class="col-md-4">
+                                <!--<input type="text" class="col-md-10 form-control">-->
+                                <label class="control-label" style="color: #878787">13770865948</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">入住日期</label>
+                            <div class="col-md-4">
+                                <!--<input type="date" class="form-control col-md-5">-->
+                                <label class="control-label" style="color: #878787">2017-03-21</label>
+                            </div>
+                            <label class="control-label col-md-2"> 离店日期</label>
+                            <div class="col-md-4">
+                                <!--<input type="date" class="form-control col-md-5">-->
+                                <label class="control-label" style="color: #878787">2017-03-23</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">预计到店</label>
+                            <div class="col-md-4">
+                                <div style="position: absolute">
+                                    <label class="control-label" id="arrive_time" style="color: #878787;">18:00</label>
+                                    <button type="button" class="btn btn-primary btn-danger btn-xs" onclick="Edit()" id="delay"
+                                            style="margin-left: 30px">延期</button>
+                                </div>
+                                <!--<input class="input-sm form-control" id="time_input"-->
+                                <!--style="visibility: hidden;position: absolute">-->
+                                <input  id="time_input" type="text" class="input-sm form-control" value="2017-03-21 18:00" data-date-format="yyyy-MM-dd hh:ii" style="visibility: hidden;position: absolute" >
+
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>入住人信息</h5>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">入住人1</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="姓名">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="身份证号">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">入住人1</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="姓名">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="身份证号">
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>支付信息</h5>
+
+                        <div class="form-group">
+                            <label class="label label-success" style="margin-left: 50px">房费</label>
+                            <label style="margin-left: 20px">100.5￥</label>
+                            <label>(会员价)</label>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">支付方式</label>
+                            <div class="col-md-4">
+                                <select class="form-control">
+                                    <option>现金</option>
+                                    <option>会员卡</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-success control-label">账户余额 500￥</label>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">办理入住</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    function Edit() {
+        document.getElementById("arrive_time").style.visibility = "hidden";
+        document.getElementById("delay").style.visibility = "hidden";
+        var time_input=document.getElementById("time_input");
+        $('#time_input').datetimepicker({
+            startView:'day'
+        });
+        time_input.style.visibility = "";
+        time_input.focus();
+
+    }
+
+    function onkey() {
+        if (event.keyCode == "13") {
+            event.preventDefault();
+            //回车执行查询
+            var arrive_time = document.getElementById("arrive_time");
+            var time_input = document.getElementById("time_input");
+            var delay = document.getElementById("delay");
+            var time = time_input.value;
+            time_input.style.visibility = "hidden";
+            if(time==null){
+                arrive_time.innerHTML="18:00";
+            }else{
+                arrive_time.innerHTML = time;
+            }
+            delay.style.visibility = "";
+            arrive_time.style.visibility = "";
+        }
+    }
+    ;
+</script>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-datetimepicker.min.js"></script>
+</body>
+
+</html>
