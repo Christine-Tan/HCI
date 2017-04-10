@@ -43,7 +43,7 @@ body{
 }
 
 .sx-search{
-    margin-right:50px;
+    margin-right:20px;
 }
 
 .sx-img-long{
@@ -54,8 +54,8 @@ body{
 
 .sx-img-top{
     margin-left: 10px;
-    width:200px;
-    height:160px;
+    width:160px;
+    height:140px;
 }
 
 .sx-img-normal{
@@ -163,6 +163,7 @@ html{
 
 .sx-content-center{
     text-align: center;
+    margin-top: 20px;
 }
 
 .sx-big-blue{
