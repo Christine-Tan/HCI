@@ -33,32 +33,36 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Hostel World</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">首页</a></li>
-                <li><a href="#about">预订客栈</a></li>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Hostel World</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">首页</a></li>
+                        <li class="active"><a href="#about">预订客栈</a></li>
 
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">您好，孙旭 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">我的资料</a></li>
-                        <li><a href="#">我的订单</a></li>
-                        <li><a href="#">退出登录</a></li>
                     </ul>
-                </li>
-            </ul>
-        </div><!--/.nav-collapse -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">您好，孙旭 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">我的资料</a></li>
+                                <li><a href="#">我的订单</a></li>
+                                <li><a href="#">退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
     </div>
 </nav>
 
@@ -89,9 +93,9 @@
                         <div class="col-md-12">
                             <div class="col-md-6">
                                 <label class="sx-label-key">入住日期</label>
-                                <span class="sx-label-value">2016-10-1</span>
+                                <span class="sx-label-value">2017/04/05</span>
                                 <span class="sx-small-grey">至</span>
-                                <span class="sx-label-value">2016-10-1</span>
+                                <span class="sx-label-value">2017/04/06</span>
                             </div>
                             <div class="col-md-1">
                                 <button class="btn btn-primary btn-default btn-xs" style="margin-top: 10px"
@@ -105,7 +109,7 @@
                             <div class="col-md-6">
                                 <label class="sx-label-key">房间单价</label>
                             <span class="sx-label-value">
-                            <span class="label label-success">会员价</span>￥100</span>
+                            <span class="label label-success">会员价</span>￥80</span>
                             </div>
                         </div>
                         <h4><strong>入住信息</strong></h4>
@@ -115,11 +119,6 @@
                                 <div class="form-group form-inline col-md-12">
                                     <label for="exampleInputName1" class="sx-label-key">入住人1</label>
                                     <input type="text" class="form-control" id="exampleInputName1" placeholder="姓名">
-                                    <input type="text" class="form-control" placeholder="联系电话">
-                                </div>
-                                <div class="form-group form-inline col-md-12">
-                                    <label for="exampleInputName2" class="sx-label-key">入住人2</label>
-                                    <input type="text" class="form-control" id="exampleInputName2" placeholder="姓名">
                                     <input type="text" class="form-control" placeholder="联系电话">
                                 </div>
                                 <div style="text-align: right;margin-right: 30px">
@@ -137,11 +136,11 @@
                 <div class="row">
                     <img src="../img/hotel-mid-1.jpg" class="sx-img-star-hotel">
                     <div class="sx-padding-all">
-                        <p class="sx-big-blue">南京啦啦啦店</p>
-                        <p>地址：江苏省南京市鼓楼区汉口路22号</p>
+                        <p class="sx-big-blue">南京小太阳温馨假日酒店</p>
+                        <p>地址：江苏省南京市玄武区小方巷1号</p>
                         <p><span class="sx-big-blue">4.9</span>/5分</p>
-                        <p>￥<span class="sx-big-red">298</span>起</p>
-                        <p><span class="sx-small-blue">500000条评价</span></p>
+                        <p>￥<span class="sx-big-red">88</span>起</p>
+                        <p><span class="sx-small-blue">57条评价</span></p>
                     </div>
                 </div>
             </div>
@@ -173,7 +172,7 @@
                     </form>
                 </div>
                 <div style="text-align: right">
-                    <button type="button" class="btn btn-primary btn-default btn-sm" style="margin-top: 10px">确认更改
+                    <button type="button" class="btn btn-primary btn-default btn-sm" style="margin-top: 10px" data-dismiss="modal">确认更改
                     </button>
                 </div>
             </div>
